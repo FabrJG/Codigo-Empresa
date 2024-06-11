@@ -8,16 +8,16 @@
 
         @if( true || Auth::check() )
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto"  style="width:100%">
                     <li class="nav-item {{ Request::is('/') && ! Request::is('/')? 'active' : ''}}">
                         <a class="nav-link" href="{{url('/')}}">
                             Home <span>&#x2302</span>
                         </a>
                     </li>
-                    <li class="nav-item {{ Request::is('servicios') && ! Request::is('servicios/proyectos')? 'active' : ''}}">
-                        <a class="nav-link" href="{{url('/servicios')}}">
+                    <li class="nav-item {{ Request::is('personas') && ! Request::is('personas')? 'active' : ''}}">
+                        <a class="nav-link" href="{{url('/personas')}}">
                             <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
-                            Servicios
+                            Personas
                         </a>
                     </li>
                     <li class="nav-item {{  Request::is('proyectos') ? 'active' : ''}}">
@@ -35,7 +35,6 @@
                             Blog
                         </a>
                     </li>
-                    
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{  Request::is('contacto') ? 'active' : ''}}">

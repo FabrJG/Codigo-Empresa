@@ -6,9 +6,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('servicios/{parametro?}', function ($parametro=NULL) {
-    return view('servicios.index', ['parametro'=>$parametro]);
-})->where('parametro', '[A-Za-z]+');
+/*Route::get('personas/{parametro?}', function ($parametro=NULL) {
+    return view('personas', ['parametro'=>$parametro]);
+})->where('parametro', '[A-Za-z]+');*/
+
+Route::get('personas','App\Http\Controllers\PersonasController@index')->name('personas.index');
+Route::get('personas/{nPerCodigo}','App\Http\Controllers\PersonasController@show')->name('personas.show');
 
 Route::get('proyectos/{parametro?}', function ($parametro=NULL) {
     return view('proyectos', ['parametro'=>$parametro]);
