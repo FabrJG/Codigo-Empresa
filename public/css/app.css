@@ -1,0 +1,16 @@
+.texto_color{
+    color:black;
+}
+
+.tabla_personas{
+    background-color: aliceblue;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, td, tr, th{
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}

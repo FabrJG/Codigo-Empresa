@@ -11,7 +11,7 @@
                 <ul class="navbar-nav mr-auto"  style="width:100%">
                     <li class="nav-item {{ Request::is('/') && ! Request::is('/')? 'active' : ''}}">
                         <a class="nav-link" href="{{url('/')}}">
-                            Home <span>&#x2302</span>
+                            Inicio <span>&#x2302</span>
                         </a>
                     </li>
                     <li class="nav-item {{ Request::is('personas') && ! Request::is('personas')? 'active' : ''}}">
@@ -20,39 +20,17 @@
                             Personas
                         </a>
                     </li>
-                    <li class="nav-item {{  Request::is('proyectos') ? 'active' : ''}}">
-                        <a class="nav-link" href="{{url('/proyectos')}}">
-                            Proyectos
+                    <li class="nav-item {{  Request::is('personas') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{url('/personas')}}">
+                            Empresa
                         </a>
-                    </li>
-                    <li class="nav-item {{  Request::is('clientes') ? 'active' : ''}}">
-                        <a class="nav-link" href="{{url('/clientes')}}">
-                            Clientes
-                        </a>
-                    </li>
-                    <li class="nav-item {{  Request::is('blog') ? 'active' : ''}}">
-                        <a class="nav-link" href="{{url('/blog')}}">
-                            Blog
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav mr-auto">
+                    </li>   
                     <li class="nav-item {{  Request::is('contacto') ? 'active' : ''}}">
                         <a class="nav-link" href="{{url('/contacto')}}">
                             Contacto
                         </a>
                     </li>
                 </ul>
-                <!-- <ul class="navbar-nav navbar-right">
-                    <li class="nav-item">
-                        <form action="{{ url('/auth/logout') }}" method="POST" style="display:inline">
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
-                                Cerrar sesión
-                            </button>
-                        </form>
-                    </li>
-                </ul> -->
             </div>
         @endif
     </div>

@@ -1,20 +1,32 @@
 @extends('layouts.master')
 
 @section('content')
-    Personas!
+    
+    <h2 align="center" class="texto_color">Personas</h2>
 
-    <table border="1" style="width: 100%;">
+    <table>
         <tr>
-            @if ($personas)
-                @foreach ($personas as $persona)
-                    <td><a href="{{ route('personas.show',$persona) }}">{{ $persona->cPerNombre }}</a></td>            
-                @endforeach
-            @else
-                <td>No Existe Ninguna Persona Que Mostrar</td>
-            @endif
+            <td colspan="4">
+                <a href="{{ route('personas.create') }}">Agregar Persona</a>
+            </td>
         </tr>
         <tr>
-            <td colspan="4">{{ $personas->links() }}</td>
+            <th colspan="4">Listado de Personas</th>
+        </tr>
+        @if ($personas)
+            @foreach ($personas as $persona)
+                <tr>
+                    <td>
+                        <a>{{ $persona->nPerCodigo }}</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('personas.show',$persona) }}">{{ $persona->cPerNombre .' '. $persona->cPerApellido}}</a>
+                    </td>
+                </tr>        
+            @endforeach
+        @else
+            <td>No Existe Ninguna Persona Que Mostrar</td>
+        @endif
         </tr>
     </table>
-@stop
+@endsection

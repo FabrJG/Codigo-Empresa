@@ -4,23 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Persona;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePersonaRequest;
 
 class PersonasController extends Controller
 {
     public function index()
     {
-        /*$personas = [
-            ['titulo' => 'Persona 01'],
-            ['titulo' => 'Persona 02'],
-            ['titulo' => 'Persona 03'],
-            ['titulo' => 'Persona 04'],
-            ['titulo' => 'Persona 05'],
-        ];*/
-        $personas = Persona::latest()->paginate(2);
+        $personas = Persona::get();
         return view('personas', compact('personas'));
     }
 
-    public function show($nPerCodigo){
+    public function show($nPerCodigo)
+    {
         return view('show',['persona' => Persona::find($nPerCodigo)]);
     }
 
@@ -29,15 +24,29 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(CreatePersonaRequest $request)
+    {        
+        /*$camposv = request()->validate([
+            'cPerNombre' => 'required',
+            'cPerApellido' => 'required',
+            'cPerDireccion' => 'required',
+            'dPerFecNac' => 'required',
+            'nPerEdad' => 'required',
+            'nPerSueldo' => 'required',
+            'nPerEstado' => 'required'
+        ]);
+
+        Persona::create($camposv);*/
+        
+        Persona::create($request->validated());
+
+        return redirect()->route('personas.index');
     }
 
     /**

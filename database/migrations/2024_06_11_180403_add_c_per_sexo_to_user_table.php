@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('persona', function (Blueprint $table) {
-            $table->string('cPerSexo')->after('nPerEdad')->nullable();
+            $table->string('cPerSexo')->after('nPerEdad')->nullable()->default('Masculino');
         });
     }
 

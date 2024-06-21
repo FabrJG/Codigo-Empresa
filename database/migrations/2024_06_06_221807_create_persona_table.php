@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('persona', function (Blueprint $table) {
-            $table->bigIncrements('nPerCodigo');
+            $table->bigIncrements('nPerCodigo',20)->unique();
             $table->char('cPerApellido');
             $table->char('cPerNombre');
             $table->string('cPerDireccion');
             $table->date('dPerFecNac');
             $table->integer('nPerEdad');
             $table->decimal('nPerSueldo');
-            $table->string('cPerRnd');
-            $table->char('nPerEstado');
-            $table->string('remember_token');
+            $table->string('cPerRnd')->nullable();
+            $table->integer('nPerEstado');
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }

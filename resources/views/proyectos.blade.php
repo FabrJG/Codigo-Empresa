@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    Proyectos de Empresa!
+    Empresa
 @stop

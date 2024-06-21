@@ -18,9 +18,9 @@
                             Servicios
                         </a>
                     </li>
-                    <li class="nav-item {{  Request::is('proyectos') ? 'active' : ''}}">
-                        <a class="nav-link" href="{{url('/proyectos')}}">
-                            Proyectos
+                    <li class="nav-item {{  Request::is('personas') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{url('/personas')}}">
+                            Personas
                         </a>
                     </li>
                     <li class="nav-item {{  Request::is('clientes') ? 'active' : ''}}">

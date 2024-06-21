@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    Pantalla Principal
+    <h1 align="center"><span style="font-size: 45px">&#x272f</span> Empresa</h1>
 @stop

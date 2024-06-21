@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.master')
 
 @section('title','Persona | ' . $persona->cPerNombre)
 
@@ -11,7 +11,7 @@
     <td colspan="4">{{$persona->cPerDireccion}}</td>
 </tr>
 <tr>
-    <td colspan="4">{{ $persona->created_at->diffForHumas() }}</td>
+    <td colspan="4">{{ $persona->created_at }}</td>
 </tr>
 
 @endsection
