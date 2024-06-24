@@ -24,52 +24,45 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('create',[
+            'persona' => new Persona
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(CreatePersonaRequest $request)
-    {        
-        /*$camposv = request()->validate([
-            'cPerNombre' => 'required',
-            'cPerApellido' => 'required',
-            'cPerDireccion' => 'required',
-            'dPerFecNac' => 'required',
-            'nPerEdad' => 'required',
-            'nPerSueldo' => 'required',
-            'nPerEstado' => 'required'
-        ]);
-
-        Persona::create($camposv);*/
-        
+    {               
         Persona::create($request->validated());
-
         return redirect()->route('personas.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Persona $nPerCodigo)
     {
-        //
+        return view('edit',[
+            'persona' => $nPerCodigo
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Persona $nPerCodigo, CreatePersonaRequest $request)
     {
-        //
+        $nPerCodigo->update($request->validated());
+        return redirect()->route('personas.show',$nPerCodigo);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+    public function destroy(Persona $persona)
+    {   
+        $persona->delete();
+        return redirect()->route('personas.index');
     }
 }
