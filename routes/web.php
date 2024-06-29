@@ -32,6 +32,6 @@ Route::get('blog/{parametro?}', function ($parametro=NULL) {
     return view('blog', ['parametro'=>$parametro]);
 })->where('parametro', '[0-9]+');
 
-Route::get('contacto', function () {
-    return view('contacto.contacto');
-});
+Route::view('contacto','contacto')->name('contacto');
+
+Route::post('contacto','App\Http\Controllers\ContactoController@store');
