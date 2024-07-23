@@ -15,6 +15,7 @@
                         <th scope="col" colspan="2">CONTACTO</th>
                     </tr>
                 </thead>
+                
                 <form action="{{ route('contacto') }}" method="post">
                     @csrf {{-- Token para verificar que el formulario es seguro --}}
                     <tbody>

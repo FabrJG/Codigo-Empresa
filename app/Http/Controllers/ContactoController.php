@@ -21,7 +21,8 @@ class ContactoController extends Controller
             'mensaje.required' => 'Ingresa tu MENSAJE',
         ]);
         Mail::to('t452700220@gunitru.edu.pe')->send(new MensajeRecibido($mensaje));
-        return new MensajeRecibido($mensaje);
+        return back()->with('estado','Gracias por ponerte en contacto, te responderemos a la brevedad posible');
+        //return new MensajeRecibido($mensaje);
         //return 'Mensaje enviado';
     }
 }

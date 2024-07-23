@@ -30,7 +30,28 @@
                             Contacto
                         </a>
                     </li>
+                    @guest
+                    <li class="nav-item {{  Request::is('contacto') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item {{  Request::is('contacto') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{ route('register') }}">
+                            Register
+                        </a>
+                    </li>
+                    @else
+                    <li class="nav-item {{  Request::is('contacto') ? 'active' : ''}}">
+                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Cerrar Sesión
+                        </a>
+                    </li>
+                    @endguest
                 </ul>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
         @endif
     </div>

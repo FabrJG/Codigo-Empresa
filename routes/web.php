@@ -6,7 +6,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('personas','App\Http\Controllers\PersonasController@index')->name('personas.index');
+/*Route::get('personas','App\Http\Controllers\PersonasController@index')->name('personas.index');
 
 Route::get('personas/crear','App\Http\Controllers\PersonasController@create')->name('personas.create');
 
@@ -18,7 +18,9 @@ Route::post('personas','App\Http\Controllers\PersonasController@store')->name('p
 
 Route::get('personas/{nPerCodigo}','App\Http\Controllers\PersonasController@show')->name('personas.show');
 
-Route::delete('personas/{persona}','App\Http\Controllers\PersonasController@destroy')->name('personas.destroy');
+Route::delete('personas/{persona}','App\Http\Controllers\PersonasController@destroy')->name('personas.destroy');*/
+
+Route::resource('personas', 'App\Http\Controllers\PersonasController')->names('personas');
 
 Route::get('proyectos/{parametro?}', function ($parametro=NULL) {
     return view('proyectos', ['parametro'=>$parametro]);
@@ -35,3 +37,7 @@ Route::get('blog/{parametro?}', function ($parametro=NULL) {
 Route::view('contacto','contacto')->name('contacto');
 
 Route::post('contacto','App\Http\Controllers\ContactoController@store');
+
+Auth::routes(['register' => false]);
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
